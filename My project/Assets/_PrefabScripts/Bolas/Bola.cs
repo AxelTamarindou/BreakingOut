@@ -1,16 +1,32 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Bola : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool isGameStarted = false;
+    [SerializeField] public float velocidadBola = 10f;
+    
     void Start()
     {
+        Vector2 posicionInicial = GameObject.FindGameObjectWithTag("Jugador").transform.position;
+        posicionInicial.y += 1;
+        this.transform.position = posicionInicial;
+        this.transform.SetParent(GameObject.FindGameObjectWithTag("Jugador").transform);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (!isGameStarted)
+            {
+                isGameStarted = true;
+                this.transform.SetParent(null);
+                GetComponent<Rigidbody2D>().linearVelocity = velocidadBola * Vector2.up;
+            }
+        }
+    }   
 }
