@@ -3,9 +3,9 @@ using UnityEngine;
 public class Plataforma: MonoBehaviour
 {
     [SerializeField] public float limiteX = 7.5f;
-    [SerializeField] public float velocidad = 0.5f;
-    Transform transform;   
-    Vector3 PlayerPos2D;
+    [SerializeField] public float velocidad = 10f;
+    new Transform transform;   
+    
     
     
    
@@ -20,18 +20,20 @@ public class Plataforma: MonoBehaviour
         
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * velocidad * Time.deltaTime);
+            transform.Translate(Vector2.left * velocidad * Time.deltaTime);
+            Debug.Log("Movimiento hacia la izquierda");
         }
         
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * velocidad * Time.deltaTime);
+            transform.Translate(Vector2.right * velocidad * Time.deltaTime);
+            Debug.Log("Movimiento hacia la derecha");
         }
 
-        Vector3 pos = transform.position;
+        Vector2 pos = transform.position;
 
 
-        if (pos.x < limiteX)
+        if (pos.x < -limiteX)
         {
             pos.x = -limiteX;
         }
@@ -40,8 +42,8 @@ public class Plataforma: MonoBehaviour
             pos.x = limiteX;
         }
 
-          transform.position = pos;
-          Debug.Log(pos.x);
+        transform.position = pos;
+          
     }
 
  
