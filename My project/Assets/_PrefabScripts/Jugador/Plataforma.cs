@@ -5,9 +5,6 @@ public class Plataforma: MonoBehaviour
     [SerializeField] public float limiteX = 7.5f;
     [SerializeField] public float velocidad = 10f;
     new Transform transform;   
-    
-    
-    
    
     void Start()
     {
