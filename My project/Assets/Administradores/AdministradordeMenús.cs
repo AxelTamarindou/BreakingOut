@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,8 +14,8 @@ public class AdministradordeMenús : MonoBehaviour
     public GameObject MenúPausa;
     public GameObject Layout;
     public GameObject ReanudarPartida;
-    int Nivel;
-
+    public int Nivel;
+   
     public void Start()
     {
         //Debug.Log(IniciarJuego);
@@ -93,4 +94,7 @@ public class AdministradordeMenús : MonoBehaviour
             Layout.SetActive(true);
         }
     }
+
+  
+
 }
