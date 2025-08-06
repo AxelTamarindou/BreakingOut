@@ -12,7 +12,6 @@ public class Bloque : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bola")
         {
-            Debug.Log("La collision se dió");
             RebotarBola(collision);
         }
 
@@ -26,7 +25,7 @@ public class Bloque : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(resistencia);
+       
     }
 
     // Update is called once per frame

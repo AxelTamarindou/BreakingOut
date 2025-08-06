@@ -23,6 +23,7 @@ public class ControlBordes : MonoBehaviour
         Vector2 pos = transform.position;
         estaEnPantalla = true;
         salioAbajo = salioArriba = salioDerecha = salioIzquierda = false;
+
         if (pos.x > anchoCamara - radio)
         {
             pos.x = anchoCamara - radio;
@@ -46,5 +47,19 @@ public class ControlBordes : MonoBehaviour
             pos.y = -altoCamara + radio;
             salioAbajo = true;
         }
+        
+        estaEnPantalla = !(salioAbajo || salioArriba || salioDerecha || salioIzquierda);
+        if (mantenerEnPantalla && !estaEnPantalla)
+        {
+            transform.position = pos;
+            estaEnPantalla = true;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying) return;
+        Vector2 tamañoBorde = new Vector2(anchoCamara * 2, altoCamara * 2);
+        Gizmos.DrawWireCube(Vector3.zero, tamañoBorde);
     }
 }

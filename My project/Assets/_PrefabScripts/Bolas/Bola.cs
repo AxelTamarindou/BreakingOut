@@ -14,7 +14,7 @@ public class Bola : MonoBehaviour
     void Start()
     {
         Vector2 posicionInicial = GameObject.FindGameObjectWithTag("Jugador").transform.position;
-        posicionInicial.y += 1;
+        posicionInicial.y += 2;
         this.transform.position = posicionInicial;
         this.transform.SetParent(GameObject.FindGameObjectWithTag("Jugador").transform);
     }
@@ -28,7 +28,7 @@ public class Bola : MonoBehaviour
             {
                 isGameStarted = true;
                 this.transform.SetParent(null);
-                GetComponent<Rigidbody2D>().linearVelocity = velocidadBola * Vector2.up;
+                GetComponent<Rigidbody>().linearVelocity = velocidadBola * Vector2.up;
             }
         }
     }   
